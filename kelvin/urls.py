@@ -21,3 +21,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('accountapp.urls')),
 ]
+
+
+from django.conf.urls import url
+from django.conf import settings
+from django.conf.urls import include
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += [ url(r'^__debug__/', include(debug_toolbar.urls)), ]
